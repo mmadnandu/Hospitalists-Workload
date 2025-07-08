@@ -1,0 +1,13 @@
+^renv/
+^.git/
+^.Rproj.user/
+^cronjobs/
+^data/
+^notebooks/
+^results/
+README.html
+README.md
+*.csv
+*.xlsx
+*.rds
+*.gitignore
