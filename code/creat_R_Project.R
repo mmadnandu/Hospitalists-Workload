@@ -12,9 +12,11 @@ renv::init()
 
 # 3.--------------------------------------------------
 # git and github configuration
+# usethis::use_git_config(user.name = "", user.email = "")
 usethis::use_git()
 # -------------(run in terminal)
 usethis::use_github()
+
 # usethis::create_github_token()
 # usethis::edit_r_environ()
 # ----------------------------------------------------
