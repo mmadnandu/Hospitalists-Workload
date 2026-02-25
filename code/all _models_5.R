@@ -1,0 +1,312 @@
+#---------------------------------------------------------------
+# Project: Clinicians' workload
+# Author: Md Mohiuddin Adnan
+# Date: 07/15/2025
+#---------------------------------------------------------------
+
+# Load packages
+library(tidyverse)
+library(caret)
+library(nnet)
+library(randomForest)
+library(xgboost)
+library(e1071)
+library(kknn)
+library(binom)
+library(pROC)
+library(readxl)
+library(janitor)
+
+#--------------------------------------------------------------------------------
+# Function to calculate Accuracy, Precision, Recall, AUC with 95% CI
+#--------------------------------------------------------------------------------
+run_wl_prediction_analysis <- function(data, target_col) {
+  
+  results_list <- list()
+  k_folds <- 10  # Number of cross-validation folds
+  
+  run_models <- function(data, y_colname, group_label) {
+    
+    set.seed(555)
+    data[[y_colname]] <- as.factor(data[[y_colname]])
+    data <- data[!is.na(data[[y_colname]]), , drop = FALSE]
+    folds <- createFolds(data[[y_colname]], k = k_folds, list = TRUE, returnTrain = FALSE)
+    
+    model_metrics <- list()
+    all_preds <- list()
+    
+    # Evaluate predictions function
+    eval_model <- function(pred, prob = NULL, method = "", y_test, fold_index) {
+      y_pred <- factor(pred, levels = levels(y_test))
+      cm <- confusionMatrix(y_pred, y_test)
+      acc <- cm$overall["Accuracy"]
+      
+      # Handle multiclass precision and recall
+      if (is.matrix(cm$byClass)) {
+        prec <- mean(cm$byClass[, "Precision"], na.rm = TRUE)
+        rec  <- mean(cm$byClass[, "Recall"], na.rm = TRUE)
+      } else {
+        prec <- cm$byClass["Precision"]
+        rec  <- cm$byClass["Recall"]
+      }
+      
+      # Compute TP, TN, FP, FN
+      if (length(levels(y_test)) == 2) {
+        TP <- cm$table[2,2]; TN <- cm$table[1,1]
+        FP <- cm$table[1,2]; FN <- cm$table[2,1]
+      } else {
+        TP <- TN <- FP <- FN <- numeric(length(levels(y_test)))
+        names(TP) <- levels(y_test)
+        for (cls in levels(y_test)) {
+          y_true_bin <- ifelse(y_test == cls, 1, 0)
+          y_pred_bin <- ifelse(y_pred == cls, 1, 0)
+          TP[cls] <- sum(y_true_bin & y_pred_bin)
+          TN[cls] <- sum(!y_true_bin & !y_pred_bin)
+          FP[cls] <- sum(!y_true_bin & y_pred_bin)
+          FN[cls] <- sum(y_true_bin & !y_pred_bin)
+        }
+        TP <- mean(TP); TN <- mean(TN); FP <- mean(FP); FN <- mean(FN)
+      }
+      
+      # Compute AUC if probabilities are available
+      auc <- NA
+      if (!is.null(prob)) {
+        if (length(levels(y_test)) == 2) {
+          roc_obj <- tryCatch(roc(y_test, prob, levels = levels(y_test)), error = function(e) NULL)
+          if (!is.null(roc_obj)) auc <- as.numeric(auc(roc_obj))
+        } else if (is.matrix(prob) || is.data.frame(prob)) {
+          y_bin <- model.matrix(~ y_test - 1)
+          aucs <- sapply(1:ncol(y_bin), function(k) {
+            roc_obj <- tryCatch(roc(y_bin[,k], prob[,k], quiet = TRUE), error = function(e) NULL)
+            if (!is.null(roc_obj)) as.numeric(auc(roc_obj)) else NA
+          })
+          auc <- mean(aucs, na.rm = TRUE)
+        }
+      }
+      
+      # Store metrics
+      model_metrics[[method]][[fold_index]] <<- data.frame(
+        Accuracy = acc, Precision = prec, Recall = rec, AUC = auc,
+        TP = TP, TN = TN, FP = FP, FN = FN
+      )
+      all_preds[[method]][[fold_index]] <<- list(y_true = y_test, y_pred = y_pred, y_prob = prob)
+    }
+    
+    # Loop through folds
+    for (fold in 1:k_folds) {
+      test_idx <- folds[[fold]]
+      train <- data[-test_idx, ] %>% droplevels()
+      test  <- data[test_idx, ] %>% droplevels()
+      
+      X_train <- train %>% select(-all_of(y_colname))
+      X_test  <- test %>% select(-all_of(y_colname))
+      
+      # Ensure factor levels are consistent
+      for (col in names(X_train)) {
+        if (is.factor(X_train[[col]])) {
+          X_test[[col]] <- factor(X_test[[col]], levels = levels(X_train[[col]]))
+        }
+      }
+      
+      full_levels <- levels(data[[y_colname]])
+      y_train <- factor(train[[y_colname]], levels = full_levels)
+      y_test  <- factor(test[[y_colname]],  levels = full_levels)
+      
+      
+      #-------------------------------
+      # Logistic / Multinomial
+      #-------------------------------
+      tryCatch({
+        if (length(unique(y_train)) > 2) {
+          model <- multinom(as.formula(paste(y_colname, "~ .")), data = train, trace = FALSE)
+          prob <- predict(model, newdata = X_test, type = "probs")
+          pred <- predict(model, newdata = X_test)
+          pred <- factor(pred, levels = full_levels)
+          eval_model(pred, prob, "Multinomial Logistic", y_test, fold)
+        } else {
+          model <- glm(y_train ~ ., data = cbind(X_train, y_train), family = "binomial")
+          prob <- predict(model, newdata = X_test, type = "response")
+          pred <- ifelse(prob > 0.5, levels(y_train)[2], levels(y_train)[1])
+          eval_model(pred, prob, "Logistic Regression", y_test, fold)
+        }
+      }, error = function(e) message("Logistic Error: ", e$message))
+      
+      # #-------------------------------
+      # # Random Forest
+      # #-------------------------------
+      # tryCatch({
+      #   model <- randomForest(as.formula(paste(y_colname, "~ .")), data = train)
+      #   pred <- predict(model, X_test)
+      #   prob <- if (length(levels(y_train)) == 2) predict(model, X_test, type = "prob")[,2] else predict(model, X_test, type = "prob")
+      #   eval_model(pred, prob, "Random Forest", y_test, fold)
+      # }, error = function(e) message("Random Forest Error: ", e$message))
+      
+      #-------------------------------
+      # KNN
+      #-------------------------------
+      tryCatch({
+        X_train_num <- model.matrix(~ . -1, data = X_train)
+        X_test_num  <- model.matrix(~ . -1, data = X_test)
+        X_scaled <- scale(rbind(X_train_num, X_test_num))
+        train_scaled <- X_scaled[1:nrow(X_train_num), ]
+        test_scaled  <- X_scaled[(nrow(X_train_num)+1):nrow(X_scaled), ]
+        knn_fit <- kknn(y_train ~ ., train = data.frame(train_scaled, y_train), 
+                        test = data.frame(test_scaled), k = min(5, min(table(y_train))), distance = 2, kernel = "rectangular")
+        pred <- fitted(knn_fit)
+        pred <- factor(pred, levels = full_levels)
+        prob <- knn_fit$prob
+        eval_model(pred, prob, "KNN", y_test, fold)
+      }, error = function(e) message("KNN Error: ", e$message))
+      
+      # #-------------------------------
+      # # SVM
+      # #-------------------------------
+      # tryCatch({
+      #   model <- svm(as.formula(paste(y_colname, "~ .")), data = train, probability = TRUE)
+      #   pred <- predict(model, X_test, probability = TRUE)
+      #   prob_attr <- attr(pred, "probabilities")
+      #   prob <- if (!is.null(prob_attr)) {
+      #     if (length(levels(y_train)) == 2) prob_attr[, levels(y_train)[2]] else prob_attr[, levels(y_train), drop = FALSE]
+      #   }
+      #   eval_model(pred, prob, "SVM", y_test, fold)
+      # }, error = function(e) message("SVM Error: ", e$message))
+      # 
+      # #-------------------------------
+      # # XGBoost
+      # #-------------------------------
+      # tryCatch({
+      #   X_mat <- model.matrix(~ . -1, data = rbind(X_train, X_test))
+      #   X_train_xgb <- X_mat[1:nrow(X_train), ]
+      #   X_test_xgb  <- X_mat[(nrow(X_train)+1):nrow(X_mat), ]
+      #   if (length(levels(y_train)) == 2) {
+      #     y_train_xgb <- ifelse(y_train == levels(y_train)[2], 1, 0)
+      #     y_test_xgb  <- ifelse(y_test == levels(y_train)[2], 1, 0)
+      #   } else {
+      #     y_train_xgb <- as.numeric(y_train)-1
+      #     y_test_xgb  <- as.numeric(y_test)-1
+      #   }
+      #   num_classes <- length(levels(y_train))
+      #   params <- if (num_classes > 2) list(objective = "multi:softprob", num_class = num_classes, eval_metric = "mlogloss") else list(objective = "binary:logistic", eval_metric = "logloss")
+      #   model <- xgboost(data = X_train_xgb, label = y_train_xgb, nrounds = 50, params = params, verbose = 0, nthread = 4)
+      #   pred_prob <- predict(model, X_test_xgb)
+      #   if (num_classes == 2) {
+      #     pred <- ifelse(pred_prob > 0.5, levels(y_train)[2], levels(y_train)[1])
+      #     prob <- pred_prob
+      #   } else {
+      #     pred_prob_mat <- matrix(pred_prob, ncol = num_classes, byrow = TRUE)
+      #     colnames(pred_prob_mat) <- levels(y_train)
+      #     pred <- levels(y_train)[max.col(pred_prob_mat)]
+      #     prob <- pred_prob_mat
+      #   }
+      #   eval_model(pred, prob, "XGBoost", y_test, fold)
+      # }, error = function(e) message("XGBoost Error: ", e$message))
+    }
+    
+    # Compute fold-averaged metrics with 95% CI
+    for (model_name in names(model_metrics)) {
+      df <- bind_rows(model_metrics[[model_name]])
+      ci_acc <- binom.confint(
+        sum(unlist(lapply(all_preds[[model_name]], function(x) sum(x$y_true == x$y_pred)))),
+        length(unlist(lapply(all_preds[[model_name]], function(x) x$y_true))),
+        conf.level = 0.95, methods = "wilson"
+      )
+      
+      prec_ci <- quantile(df$Precision, probs = c(0.025, 0.975), na.rm = TRUE)
+      rec_ci  <- quantile(df$Recall, probs = c(0.025, 0.975), na.rm = TRUE)
+      auc_vals <- df$AUC[!is.na(df$AUC)]
+      auc_ci <- if (length(auc_vals) > 1) quantile(auc_vals, probs = c(0.025, 0.975)) else c(auc_vals, auc_vals)
+      
+      results_list[[length(results_list)+1]] <<- data.frame(
+        Group = group_label,
+        Model = model_name,
+        Accuracy = round(mean(df$Accuracy, na.rm = TRUE), 3),
+        Accuracy_CI = sprintf("[%.3f, %.3f]", ci_acc$lower, ci_acc$upper),
+        Precision = round(mean(df$Precision, na.rm = TRUE), 3),
+        Precision_CI = sprintf("[%.3f, %.3f]", prec_ci[1], prec_ci[2]),
+        Recall = round(mean(df$Recall, na.rm = TRUE), 3),
+        Recall_CI = sprintf("[%.3f, %.3f]", rec_ci[1], rec_ci[2]),
+        AUC = round(mean(df$AUC, na.rm = TRUE), 3),
+        AUC_CI = ifelse(!all(is.na(auc_ci)), sprintf("[%.3f, %.3f]", auc_ci[1], auc_ci[2]), NA),
+        # TP = as.integer(round(mean(df$TP, na.rm = TRUE), 1)),
+        # TN = as.integer(round(mean(df$TN, na.rm = TRUE), 1)),
+        # FP = as.integer(round(mean(df$FP, na.rm = TRUE), 1)),
+        # FN = as.integer(round(mean(df$FN, na.rm = TRUE), 1))
+        TP = sum(df$TP, na.rm = TRUE),
+        TN = sum(df$TN, na.rm = TRUE),
+        FP = sum(df$FP, na.rm = TRUE),
+        FN = sum(df$FN, na.rm = TRUE)
+        
+      )
+    }
+  }
+  
+  #-------------------------------
+  # Run analysis for 7-class, 3-class, 2-class groupings
+  #-------------------------------
+  original_levels <- sort(unique(as.numeric(as.character(data[[target_col]]))))
+  n_levels <- length(original_levels)
+  
+  cat("\n====== 7-class Model ======\n")
+  run_models(data, target_col, "7-class")
+  
+  cat("\n====== 3-class Groupings ======\n")
+  for (i in 1:(n_levels - 2)) {
+    for (j in (i + 1):(n_levels - 1)) {
+      g1 <- original_levels[1:i]; g2 <- original_levels[(i+1):j]; g3 <- original_levels[(j+1):n_levels]
+      grouped_data <- data %>% select(-all_of(target_col))
+      grouped_data[[paste0(target_col, "_3")]] <- factor(
+        ifelse(as.numeric(as.character(data[[target_col]])) %in% g1, "Low",
+               ifelse(as.numeric(as.character(data[[target_col]])) %in% g2, "Medium", "High"))
+      )
+      run_models(grouped_data, paste0(target_col, "_3"),
+                 sprintf("3-class (%s)/(%s)/(%s)", paste(g1, collapse=","), paste(g2, collapse=","), paste(g3, collapse=",")))
+    }
+  }
+  
+  cat("\n====== All 2-class Groupings ======\n")
+  for (i in 1:(n_levels-1)) {
+    g1 <- original_levels[1:i]; g2 <- original_levels[(i+1):n_levels]
+    grouped_data <- data %>% select(-all_of(target_col))
+    grouped_data[[paste0(target_col, "_2")]] <- factor(
+      ifelse(as.numeric(as.character(data[[target_col]])) %in% g1, "Low", "High")
+    )
+    run_models(grouped_data, paste0(target_col, "_2"),
+               sprintf("2-class (%s) vs (%s)", paste(g1, collapse=","), paste(g2, collapse=",")))
+  }
+  
+  # Save results
+  results_df <- bind_rows(results_list)
+  write.csv(results_df,
+            file = file.path("results", paste0("model_performance_results_", target_col, ".csv")),
+            row.names = FALSE)
+  message(paste0("✅ All results saved to 'model_performance_results_", target_col, ".csv'"))
+}
+
+#--------------------------------------------------------------------------------
+# Run analysis for workload variables
+#--------------------------------------------------------------------------------
+final_data_for_analysis <- read_excel("data/final_data_for_analysis.xlsx") %>%
+  janitor::clean_names() %>%
+  mutate(wl_total = pmin(pmax(round(wl_total), 1), 7) %>% as.factor())
+
+# target_vars <- "wl_physical"
+
+# List of workload target variables
+target_vars <- c("wl_physical", "wl_mental", "wl_temporal",
+                 "wl_performance", "wl_effort", "wl_frustration", "wl_total"
+)
+
+
+feature_cols <- c(
+  "length_of_patient_stay_hrs", "role", "days_patient_seen", "rvu_total", 
+  "patient_contact_time", "complexity_type", "complexity", "chart_review_activities",
+  "current_cls", "max_cls", "charlson_comorbidity_index_score_column",
+  "ach_eligibility_v3_score", "workload_acuity_score"
+)
+
+for (var in target_vars) {
+  cat("\n\n===========================\nRunning analysis for:", var, "\n===========================\n")
+  data_for_model <- final_data_for_analysis %>% select(all_of(c(var, feature_cols))) %>% drop_na()
+  data_for_model[[var]] <- as.factor(data_for_model[[var]])
+  run_wl_prediction_analysis(data_for_model, var)
+}

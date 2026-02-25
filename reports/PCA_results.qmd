@@ -1,0 +1,27 @@
+---
+title: "PCA result"
+format: pptx
+editor: visual
+---
+
+## 
+
+## PCA Results Summary
+
+-   **Principal Components (PCs)**:
+    -   PC1 explains **55.5%** of the variance\
+    -   PC2 adds **14.3%** (cumulative **69.8%**)\
+    -   PC3 adds **11.6%** (cumulative **81.4%**)
+-   **Interpretation**:
+    -   Workload dimensions cluster into **3 main components**\
+    -   PC1 → **General workload intensity**\
+    -   PC2 → **Performance vs. physical demand trade-off**\
+    -   PC3 → **Mental demand vs. performance load**
+
+------------------------------------------------------------------------
+
+## PCA Loadings (Top Contributors)
+
+-   **PC1**: wl_temporal (0.41), wl_physical (0.38), wl_frustration (0.47)\
+-   **PC2**: wl_performance (-0.71), wl_physical (0.51)\
+-   **PC3**: wl_mental (-0.59), wl_performance (0.49)

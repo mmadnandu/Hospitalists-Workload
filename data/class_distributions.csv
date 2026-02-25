@@ -1,0 +1,385 @@
+target,grouping_type,grouping_desc,class,count,percent
+physical,7-class,"1,2,3,4,5,6,7",1,457,24.35
+physical,7-class,"1,2,3,4,5,6,7",2,680,36.23
+physical,7-class,"1,2,3,4,5,6,7",3,291,15.5
+physical,7-class,"1,2,3,4,5,6,7",4,243,12.95
+physical,7-class,"1,2,3,4,5,6,7",5,147,7.83
+physical,7-class,"1,2,3,4,5,6,7",6,44,2.34
+physical,7-class,"1,2,3,4,5,6,7",7,15,0.8
+physical,3-class,"(1)/(2)/(3,4,5,6,7)",Low,457,24.35
+physical,3-class,"(1)/(2)/(3,4,5,6,7)",Medium,680,36.23
+physical,3-class,"(1)/(2)/(3,4,5,6,7)",High,740,39.42
+physical,3-class,"(1)/(2,3)/(4,5,6,7)",Low,457,24.35
+physical,3-class,"(1)/(2,3)/(4,5,6,7)",Medium,971,51.73
+physical,3-class,"(1)/(2,3)/(4,5,6,7)",High,449,23.92
+physical,3-class,"(1)/(2,3,4)/(5,6,7)",Low,457,24.35
+physical,3-class,"(1)/(2,3,4)/(5,6,7)",Medium,1214,64.68
+physical,3-class,"(1)/(2,3,4)/(5,6,7)",High,206,10.97
+physical,3-class,"(1)/(2,3,4,5)/(6,7)",Low,457,24.35
+physical,3-class,"(1)/(2,3,4,5)/(6,7)",Medium,1361,72.51
+physical,3-class,"(1)/(2,3,4,5)/(6,7)",High,59,3.14
+physical,3-class,"(1)/(2,3,4,5,6)/(7)",Low,457,24.35
+physical,3-class,"(1)/(2,3,4,5,6)/(7)",Medium,1405,74.85
+physical,3-class,"(1)/(2,3,4,5,6)/(7)",High,15,0.8
+physical,3-class,"(1,2)/(3)/(4,5,6,7)",Low,1137,60.58
+physical,3-class,"(1,2)/(3)/(4,5,6,7)",Medium,291,15.5
+physical,3-class,"(1,2)/(3)/(4,5,6,7)",High,449,23.92
+physical,3-class,"(1,2)/(3,4)/(5,6,7)",Low,1137,60.58
+physical,3-class,"(1,2)/(3,4)/(5,6,7)",Medium,534,28.45
+physical,3-class,"(1,2)/(3,4)/(5,6,7)",High,206,10.97
+physical,3-class,"(1,2)/(3,4,5)/(6,7)",Low,1137,60.58
+physical,3-class,"(1,2)/(3,4,5)/(6,7)",Medium,681,36.28
+physical,3-class,"(1,2)/(3,4,5)/(6,7)",High,59,3.14
+physical,3-class,"(1,2)/(3,4,5,6)/(7)",Low,1137,60.58
+physical,3-class,"(1,2)/(3,4,5,6)/(7)",Medium,725,38.63
+physical,3-class,"(1,2)/(3,4,5,6)/(7)",High,15,0.8
+physical,3-class,"(1,2,3)/(4)/(5,6,7)",Low,1428,76.08
+physical,3-class,"(1,2,3)/(4)/(5,6,7)",Medium,243,12.95
+physical,3-class,"(1,2,3)/(4)/(5,6,7)",High,206,10.97
+physical,3-class,"(1,2,3)/(4,5)/(6,7)",Low,1428,76.08
+physical,3-class,"(1,2,3)/(4,5)/(6,7)",Medium,390,20.78
+physical,3-class,"(1,2,3)/(4,5)/(6,7)",High,59,3.14
+physical,3-class,"(1,2,3)/(4,5,6)/(7)",Low,1428,76.08
+physical,3-class,"(1,2,3)/(4,5,6)/(7)",Medium,434,23.12
+physical,3-class,"(1,2,3)/(4,5,6)/(7)",High,15,0.8
+physical,3-class,"(1,2,3,4)/(5)/(6,7)",Low,1671,89.03
+physical,3-class,"(1,2,3,4)/(5)/(6,7)",Medium,147,7.83
+physical,3-class,"(1,2,3,4)/(5)/(6,7)",High,59,3.14
+physical,3-class,"(1,2,3,4)/(5,6)/(7)",Low,1671,89.03
+physical,3-class,"(1,2,3,4)/(5,6)/(7)",Medium,191,10.18
+physical,3-class,"(1,2,3,4)/(5,6)/(7)",High,15,0.8
+physical,3-class,"(1,2,3,4,5)/(6)/(7)",Low,1818,96.86
+physical,3-class,"(1,2,3,4,5)/(6)/(7)",Medium,44,2.34
+physical,3-class,"(1,2,3,4,5)/(6)/(7)",High,15,0.8
+physical,2-class,"(1) vs (2,3,4,5,6,7)",Low,457,24.35
+physical,2-class,"(1) vs (2,3,4,5,6,7)",High,1420,75.65
+physical,2-class,"(1,2) vs (3,4,5,6,7)",Low,1137,60.58
+physical,2-class,"(1,2) vs (3,4,5,6,7)",High,740,39.42
+physical,2-class,"(1,2,3) vs (4,5,6,7)",Low,1428,76.08
+physical,2-class,"(1,2,3) vs (4,5,6,7)",High,449,23.92
+physical,2-class,"(1,2,3,4) vs (5,6,7)",Low,1671,89.03
+physical,2-class,"(1,2,3,4) vs (5,6,7)",High,206,10.97
+physical,2-class,"(1,2,3,4,5) vs (6,7)",Low,1818,96.86
+physical,2-class,"(1,2,3,4,5) vs (6,7)",High,59,3.14
+physical,2-class,"(1,2,3,4,5,6) vs (7)",Low,1862,99.2
+physical,2-class,"(1,2,3,4,5,6) vs (7)",High,15,0.8
+mental,7-class,"1,2,3,4,5,6,7",1,99,5.27
+mental,7-class,"1,2,3,4,5,6,7",2,288,15.34
+mental,7-class,"1,2,3,4,5,6,7",3,345,18.38
+mental,7-class,"1,2,3,4,5,6,7",4,384,20.46
+mental,7-class,"1,2,3,4,5,6,7",5,405,21.58
+mental,7-class,"1,2,3,4,5,6,7",6,228,12.15
+mental,7-class,"1,2,3,4,5,6,7",7,128,6.82
+mental,3-class,"(1)/(2)/(3,4,5,6,7)",Low,99,5.27
+mental,3-class,"(1)/(2)/(3,4,5,6,7)",Medium,288,15.34
+mental,3-class,"(1)/(2)/(3,4,5,6,7)",High,1490,79.38
+mental,3-class,"(1)/(2,3)/(4,5,6,7)",Low,99,5.27
+mental,3-class,"(1)/(2,3)/(4,5,6,7)",Medium,633,33.72
+mental,3-class,"(1)/(2,3)/(4,5,6,7)",High,1145,61
+mental,3-class,"(1)/(2,3,4)/(5,6,7)",Low,99,5.27
+mental,3-class,"(1)/(2,3,4)/(5,6,7)",Medium,1017,54.18
+mental,3-class,"(1)/(2,3,4)/(5,6,7)",High,761,40.54
+mental,3-class,"(1)/(2,3,4,5)/(6,7)",Low,99,5.27
+mental,3-class,"(1)/(2,3,4,5)/(6,7)",Medium,1422,75.76
+mental,3-class,"(1)/(2,3,4,5)/(6,7)",High,356,18.97
+mental,3-class,"(1)/(2,3,4,5,6)/(7)",Low,99,5.27
+mental,3-class,"(1)/(2,3,4,5,6)/(7)",Medium,1650,87.91
+mental,3-class,"(1)/(2,3,4,5,6)/(7)",High,128,6.82
+mental,3-class,"(1,2)/(3)/(4,5,6,7)",Low,387,20.62
+mental,3-class,"(1,2)/(3)/(4,5,6,7)",Medium,345,18.38
+mental,3-class,"(1,2)/(3)/(4,5,6,7)",High,1145,61
+mental,3-class,"(1,2)/(3,4)/(5,6,7)",Low,387,20.62
+mental,3-class,"(1,2)/(3,4)/(5,6,7)",Medium,729,38.84
+mental,3-class,"(1,2)/(3,4)/(5,6,7)",High,761,40.54
+mental,3-class,"(1,2)/(3,4,5)/(6,7)",Low,387,20.62
+mental,3-class,"(1,2)/(3,4,5)/(6,7)",Medium,1134,60.42
+mental,3-class,"(1,2)/(3,4,5)/(6,7)",High,356,18.97
+mental,3-class,"(1,2)/(3,4,5,6)/(7)",Low,387,20.62
+mental,3-class,"(1,2)/(3,4,5,6)/(7)",Medium,1362,72.56
+mental,3-class,"(1,2)/(3,4,5,6)/(7)",High,128,6.82
+mental,3-class,"(1,2,3)/(4)/(5,6,7)",Low,732,39
+mental,3-class,"(1,2,3)/(4)/(5,6,7)",Medium,384,20.46
+mental,3-class,"(1,2,3)/(4)/(5,6,7)",High,761,40.54
+mental,3-class,"(1,2,3)/(4,5)/(6,7)",Low,732,39
+mental,3-class,"(1,2,3)/(4,5)/(6,7)",Medium,789,42.04
+mental,3-class,"(1,2,3)/(4,5)/(6,7)",High,356,18.97
+mental,3-class,"(1,2,3)/(4,5,6)/(7)",Low,732,39
+mental,3-class,"(1,2,3)/(4,5,6)/(7)",Medium,1017,54.18
+mental,3-class,"(1,2,3)/(4,5,6)/(7)",High,128,6.82
+mental,3-class,"(1,2,3,4)/(5)/(6,7)",Low,1116,59.46
+mental,3-class,"(1,2,3,4)/(5)/(6,7)",Medium,405,21.58
+mental,3-class,"(1,2,3,4)/(5)/(6,7)",High,356,18.97
+mental,3-class,"(1,2,3,4)/(5,6)/(7)",Low,1116,59.46
+mental,3-class,"(1,2,3,4)/(5,6)/(7)",Medium,633,33.72
+mental,3-class,"(1,2,3,4)/(5,6)/(7)",High,128,6.82
+mental,3-class,"(1,2,3,4,5)/(6)/(7)",Low,1521,81.03
+mental,3-class,"(1,2,3,4,5)/(6)/(7)",Medium,228,12.15
+mental,3-class,"(1,2,3,4,5)/(6)/(7)",High,128,6.82
+mental,2-class,"(1) vs (2,3,4,5,6,7)",Low,99,5.27
+mental,2-class,"(1) vs (2,3,4,5,6,7)",High,1778,94.73
+mental,2-class,"(1,2) vs (3,4,5,6,7)",Low,387,20.62
+mental,2-class,"(1,2) vs (3,4,5,6,7)",High,1490,79.38
+mental,2-class,"(1,2,3) vs (4,5,6,7)",Low,732,39
+mental,2-class,"(1,2,3) vs (4,5,6,7)",High,1145,61
+mental,2-class,"(1,2,3,4) vs (5,6,7)",Low,1116,59.46
+mental,2-class,"(1,2,3,4) vs (5,6,7)",High,761,40.54
+mental,2-class,"(1,2,3,4,5) vs (6,7)",Low,1521,81.03
+mental,2-class,"(1,2,3,4,5) vs (6,7)",High,356,18.97
+mental,2-class,"(1,2,3,4,5,6) vs (7)",Low,1749,93.18
+mental,2-class,"(1,2,3,4,5,6) vs (7)",High,128,6.82
+temporal,7-class,"1,2,3,4,5,6,7",1,464,24.72
+temporal,7-class,"1,2,3,4,5,6,7",2,618,32.92
+temporal,7-class,"1,2,3,4,5,6,7",3,382,20.35
+temporal,7-class,"1,2,3,4,5,6,7",4,247,13.16
+temporal,7-class,"1,2,3,4,5,6,7",5,127,6.77
+temporal,7-class,"1,2,3,4,5,6,7",6,29,1.55
+temporal,7-class,"1,2,3,4,5,6,7",7,10,0.53
+temporal,3-class,"(1)/(2)/(3,4,5,6,7)",Low,464,24.72
+temporal,3-class,"(1)/(2)/(3,4,5,6,7)",Medium,618,32.92
+temporal,3-class,"(1)/(2)/(3,4,5,6,7)",High,795,42.35
+temporal,3-class,"(1)/(2,3)/(4,5,6,7)",Low,464,24.72
+temporal,3-class,"(1)/(2,3)/(4,5,6,7)",Medium,1000,53.28
+temporal,3-class,"(1)/(2,3)/(4,5,6,7)",High,413,22
+temporal,3-class,"(1)/(2,3,4)/(5,6,7)",Low,464,24.72
+temporal,3-class,"(1)/(2,3,4)/(5,6,7)",Medium,1247,66.44
+temporal,3-class,"(1)/(2,3,4)/(5,6,7)",High,166,8.84
+temporal,3-class,"(1)/(2,3,4,5)/(6,7)",Low,464,24.72
+temporal,3-class,"(1)/(2,3,4,5)/(6,7)",Medium,1374,73.2
+temporal,3-class,"(1)/(2,3,4,5)/(6,7)",High,39,2.08
+temporal,3-class,"(1)/(2,3,4,5,6)/(7)",Low,464,24.72
+temporal,3-class,"(1)/(2,3,4,5,6)/(7)",Medium,1403,74.75
+temporal,3-class,"(1)/(2,3,4,5,6)/(7)",High,10,0.53
+temporal,3-class,"(1,2)/(3)/(4,5,6,7)",Low,1082,57.65
+temporal,3-class,"(1,2)/(3)/(4,5,6,7)",Medium,382,20.35
+temporal,3-class,"(1,2)/(3)/(4,5,6,7)",High,413,22
+temporal,3-class,"(1,2)/(3,4)/(5,6,7)",Low,1082,57.65
+temporal,3-class,"(1,2)/(3,4)/(5,6,7)",Medium,629,33.51
+temporal,3-class,"(1,2)/(3,4)/(5,6,7)",High,166,8.84
+temporal,3-class,"(1,2)/(3,4,5)/(6,7)",Low,1082,57.65
+temporal,3-class,"(1,2)/(3,4,5)/(6,7)",Medium,756,40.28
+temporal,3-class,"(1,2)/(3,4,5)/(6,7)",High,39,2.08
+temporal,3-class,"(1,2)/(3,4,5,6)/(7)",Low,1082,57.65
+temporal,3-class,"(1,2)/(3,4,5,6)/(7)",Medium,785,41.82
+temporal,3-class,"(1,2)/(3,4,5,6)/(7)",High,10,0.53
+temporal,3-class,"(1,2,3)/(4)/(5,6,7)",Low,1464,78
+temporal,3-class,"(1,2,3)/(4)/(5,6,7)",Medium,247,13.16
+temporal,3-class,"(1,2,3)/(4)/(5,6,7)",High,166,8.84
+temporal,3-class,"(1,2,3)/(4,5)/(6,7)",Low,1464,78
+temporal,3-class,"(1,2,3)/(4,5)/(6,7)",Medium,374,19.93
+temporal,3-class,"(1,2,3)/(4,5)/(6,7)",High,39,2.08
+temporal,3-class,"(1,2,3)/(4,5,6)/(7)",Low,1464,78
+temporal,3-class,"(1,2,3)/(4,5,6)/(7)",Medium,403,21.47
+temporal,3-class,"(1,2,3)/(4,5,6)/(7)",High,10,0.53
+temporal,3-class,"(1,2,3,4)/(5)/(6,7)",Low,1711,91.16
+temporal,3-class,"(1,2,3,4)/(5)/(6,7)",Medium,127,6.77
+temporal,3-class,"(1,2,3,4)/(5)/(6,7)",High,39,2.08
+temporal,3-class,"(1,2,3,4)/(5,6)/(7)",Low,1711,91.16
+temporal,3-class,"(1,2,3,4)/(5,6)/(7)",Medium,156,8.31
+temporal,3-class,"(1,2,3,4)/(5,6)/(7)",High,10,0.53
+temporal,3-class,"(1,2,3,4,5)/(6)/(7)",Low,1838,97.92
+temporal,3-class,"(1,2,3,4,5)/(6)/(7)",Medium,29,1.55
+temporal,3-class,"(1,2,3,4,5)/(6)/(7)",High,10,0.53
+temporal,2-class,"(1) vs (2,3,4,5,6,7)",Low,464,24.72
+temporal,2-class,"(1) vs (2,3,4,5,6,7)",High,1413,75.28
+temporal,2-class,"(1,2) vs (3,4,5,6,7)",Low,1082,57.65
+temporal,2-class,"(1,2) vs (3,4,5,6,7)",High,795,42.35
+temporal,2-class,"(1,2,3) vs (4,5,6,7)",Low,1464,78
+temporal,2-class,"(1,2,3) vs (4,5,6,7)",High,413,22
+temporal,2-class,"(1,2,3,4) vs (5,6,7)",Low,1711,91.16
+temporal,2-class,"(1,2,3,4) vs (5,6,7)",High,166,8.84
+temporal,2-class,"(1,2,3,4,5) vs (6,7)",Low,1838,97.92
+temporal,2-class,"(1,2,3,4,5) vs (6,7)",High,39,2.08
+temporal,2-class,"(1,2,3,4,5,6) vs (7)",Low,1867,99.47
+temporal,2-class,"(1,2,3,4,5,6) vs (7)",High,10,0.53
+performance,7-class,"1,2,3,4,5,6,7",1,263,14.01
+performance,7-class,"1,2,3,4,5,6,7",2,579,30.85
+performance,7-class,"1,2,3,4,5,6,7",3,398,21.2
+performance,7-class,"1,2,3,4,5,6,7",4,300,15.98
+performance,7-class,"1,2,3,4,5,6,7",5,229,12.2
+performance,7-class,"1,2,3,4,5,6,7",6,91,4.85
+performance,7-class,"1,2,3,4,5,6,7",7,17,0.91
+performance,3-class,"(1)/(2)/(3,4,5,6,7)",Low,263,14.01
+performance,3-class,"(1)/(2)/(3,4,5,6,7)",Medium,579,30.85
+performance,3-class,"(1)/(2)/(3,4,5,6,7)",High,1035,55.14
+performance,3-class,"(1)/(2,3)/(4,5,6,7)",Low,263,14.01
+performance,3-class,"(1)/(2,3)/(4,5,6,7)",Medium,977,52.05
+performance,3-class,"(1)/(2,3)/(4,5,6,7)",High,637,33.94
+performance,3-class,"(1)/(2,3,4)/(5,6,7)",Low,263,14.01
+performance,3-class,"(1)/(2,3,4)/(5,6,7)",Medium,1277,68.03
+performance,3-class,"(1)/(2,3,4)/(5,6,7)",High,337,17.95
+performance,3-class,"(1)/(2,3,4,5)/(6,7)",Low,263,14.01
+performance,3-class,"(1)/(2,3,4,5)/(6,7)",Medium,1506,80.23
+performance,3-class,"(1)/(2,3,4,5)/(6,7)",High,108,5.75
+performance,3-class,"(1)/(2,3,4,5,6)/(7)",Low,263,14.01
+performance,3-class,"(1)/(2,3,4,5,6)/(7)",Medium,1597,85.08
+performance,3-class,"(1)/(2,3,4,5,6)/(7)",High,17,0.91
+performance,3-class,"(1,2)/(3)/(4,5,6,7)",Low,842,44.86
+performance,3-class,"(1,2)/(3)/(4,5,6,7)",Medium,398,21.2
+performance,3-class,"(1,2)/(3)/(4,5,6,7)",High,637,33.94
+performance,3-class,"(1,2)/(3,4)/(5,6,7)",Low,842,44.86
+performance,3-class,"(1,2)/(3,4)/(5,6,7)",Medium,698,37.19
+performance,3-class,"(1,2)/(3,4)/(5,6,7)",High,337,17.95
+performance,3-class,"(1,2)/(3,4,5)/(6,7)",Low,842,44.86
+performance,3-class,"(1,2)/(3,4,5)/(6,7)",Medium,927,49.39
+performance,3-class,"(1,2)/(3,4,5)/(6,7)",High,108,5.75
+performance,3-class,"(1,2)/(3,4,5,6)/(7)",Low,842,44.86
+performance,3-class,"(1,2)/(3,4,5,6)/(7)",Medium,1018,54.24
+performance,3-class,"(1,2)/(3,4,5,6)/(7)",High,17,0.91
+performance,3-class,"(1,2,3)/(4)/(5,6,7)",Low,1240,66.06
+performance,3-class,"(1,2,3)/(4)/(5,6,7)",Medium,300,15.98
+performance,3-class,"(1,2,3)/(4)/(5,6,7)",High,337,17.95
+performance,3-class,"(1,2,3)/(4,5)/(6,7)",Low,1240,66.06
+performance,3-class,"(1,2,3)/(4,5)/(6,7)",Medium,529,28.18
+performance,3-class,"(1,2,3)/(4,5)/(6,7)",High,108,5.75
+performance,3-class,"(1,2,3)/(4,5,6)/(7)",Low,1240,66.06
+performance,3-class,"(1,2,3)/(4,5,6)/(7)",Medium,620,33.03
+performance,3-class,"(1,2,3)/(4,5,6)/(7)",High,17,0.91
+performance,3-class,"(1,2,3,4)/(5)/(6,7)",Low,1540,82.05
+performance,3-class,"(1,2,3,4)/(5)/(6,7)",Medium,229,12.2
+performance,3-class,"(1,2,3,4)/(5)/(6,7)",High,108,5.75
+performance,3-class,"(1,2,3,4)/(5,6)/(7)",Low,1540,82.05
+performance,3-class,"(1,2,3,4)/(5,6)/(7)",Medium,320,17.05
+performance,3-class,"(1,2,3,4)/(5,6)/(7)",High,17,0.91
+performance,3-class,"(1,2,3,4,5)/(6)/(7)",Low,1769,94.25
+performance,3-class,"(1,2,3,4,5)/(6)/(7)",Medium,91,4.85
+performance,3-class,"(1,2,3,4,5)/(6)/(7)",High,17,0.91
+performance,2-class,"(1) vs (2,3,4,5,6,7)",Low,263,14.01
+performance,2-class,"(1) vs (2,3,4,5,6,7)",High,1614,85.99
+performance,2-class,"(1,2) vs (3,4,5,6,7)",Low,842,44.86
+performance,2-class,"(1,2) vs (3,4,5,6,7)",High,1035,55.14
+performance,2-class,"(1,2,3) vs (4,5,6,7)",Low,1240,66.06
+performance,2-class,"(1,2,3) vs (4,5,6,7)",High,637,33.94
+performance,2-class,"(1,2,3,4) vs (5,6,7)",Low,1540,82.05
+performance,2-class,"(1,2,3,4) vs (5,6,7)",High,337,17.95
+performance,2-class,"(1,2,3,4,5) vs (6,7)",Low,1769,94.25
+performance,2-class,"(1,2,3,4,5) vs (6,7)",High,108,5.75
+performance,2-class,"(1,2,3,4,5,6) vs (7)",Low,1860,99.09
+performance,2-class,"(1,2,3,4,5,6) vs (7)",High,17,0.91
+effort,7-class,"1,2,3,4,5,6,7",1,105,5.59
+effort,7-class,"1,2,3,4,5,6,7",2,285,15.18
+effort,7-class,"1,2,3,4,5,6,7",3,372,19.82
+effort,7-class,"1,2,3,4,5,6,7",4,453,24.13
+effort,7-class,"1,2,3,4,5,6,7",5,367,19.55
+effort,7-class,"1,2,3,4,5,6,7",6,211,11.24
+effort,7-class,"1,2,3,4,5,6,7",7,84,4.48
+effort,3-class,"(1)/(2)/(3,4,5,6,7)",Low,105,5.59
+effort,3-class,"(1)/(2)/(3,4,5,6,7)",Medium,285,15.18
+effort,3-class,"(1)/(2)/(3,4,5,6,7)",High,1487,79.22
+effort,3-class,"(1)/(2,3)/(4,5,6,7)",Low,105,5.59
+effort,3-class,"(1)/(2,3)/(4,5,6,7)",Medium,657,35
+effort,3-class,"(1)/(2,3)/(4,5,6,7)",High,1115,59.4
+effort,3-class,"(1)/(2,3,4)/(5,6,7)",Low,105,5.59
+effort,3-class,"(1)/(2,3,4)/(5,6,7)",Medium,1110,59.14
+effort,3-class,"(1)/(2,3,4)/(5,6,7)",High,662,35.27
+effort,3-class,"(1)/(2,3,4,5)/(6,7)",Low,105,5.59
+effort,3-class,"(1)/(2,3,4,5)/(6,7)",Medium,1477,78.69
+effort,3-class,"(1)/(2,3,4,5)/(6,7)",High,295,15.72
+effort,3-class,"(1)/(2,3,4,5,6)/(7)",Low,105,5.59
+effort,3-class,"(1)/(2,3,4,5,6)/(7)",Medium,1688,89.93
+effort,3-class,"(1)/(2,3,4,5,6)/(7)",High,84,4.48
+effort,3-class,"(1,2)/(3)/(4,5,6,7)",Low,390,20.78
+effort,3-class,"(1,2)/(3)/(4,5,6,7)",Medium,372,19.82
+effort,3-class,"(1,2)/(3)/(4,5,6,7)",High,1115,59.4
+effort,3-class,"(1,2)/(3,4)/(5,6,7)",Low,390,20.78
+effort,3-class,"(1,2)/(3,4)/(5,6,7)",Medium,825,43.95
+effort,3-class,"(1,2)/(3,4)/(5,6,7)",High,662,35.27
+effort,3-class,"(1,2)/(3,4,5)/(6,7)",Low,390,20.78
+effort,3-class,"(1,2)/(3,4,5)/(6,7)",Medium,1192,63.51
+effort,3-class,"(1,2)/(3,4,5)/(6,7)",High,295,15.72
+effort,3-class,"(1,2)/(3,4,5,6)/(7)",Low,390,20.78
+effort,3-class,"(1,2)/(3,4,5,6)/(7)",Medium,1403,74.75
+effort,3-class,"(1,2)/(3,4,5,6)/(7)",High,84,4.48
+effort,3-class,"(1,2,3)/(4)/(5,6,7)",Low,762,40.6
+effort,3-class,"(1,2,3)/(4)/(5,6,7)",Medium,453,24.13
+effort,3-class,"(1,2,3)/(4)/(5,6,7)",High,662,35.27
+effort,3-class,"(1,2,3)/(4,5)/(6,7)",Low,762,40.6
+effort,3-class,"(1,2,3)/(4,5)/(6,7)",Medium,820,43.69
+effort,3-class,"(1,2,3)/(4,5)/(6,7)",High,295,15.72
+effort,3-class,"(1,2,3)/(4,5,6)/(7)",Low,762,40.6
+effort,3-class,"(1,2,3)/(4,5,6)/(7)",Medium,1031,54.93
+effort,3-class,"(1,2,3)/(4,5,6)/(7)",High,84,4.48
+effort,3-class,"(1,2,3,4)/(5)/(6,7)",Low,1215,64.73
+effort,3-class,"(1,2,3,4)/(5)/(6,7)",Medium,367,19.55
+effort,3-class,"(1,2,3,4)/(5)/(6,7)",High,295,15.72
+effort,3-class,"(1,2,3,4)/(5,6)/(7)",Low,1215,64.73
+effort,3-class,"(1,2,3,4)/(5,6)/(7)",Medium,578,30.79
+effort,3-class,"(1,2,3,4)/(5,6)/(7)",High,84,4.48
+effort,3-class,"(1,2,3,4,5)/(6)/(7)",Low,1582,84.28
+effort,3-class,"(1,2,3,4,5)/(6)/(7)",Medium,211,11.24
+effort,3-class,"(1,2,3,4,5)/(6)/(7)",High,84,4.48
+effort,2-class,"(1) vs (2,3,4,5,6,7)",Low,105,5.59
+effort,2-class,"(1) vs (2,3,4,5,6,7)",High,1772,94.41
+effort,2-class,"(1,2) vs (3,4,5,6,7)",Low,390,20.78
+effort,2-class,"(1,2) vs (3,4,5,6,7)",High,1487,79.22
+effort,2-class,"(1,2,3) vs (4,5,6,7)",Low,762,40.6
+effort,2-class,"(1,2,3) vs (4,5,6,7)",High,1115,59.4
+effort,2-class,"(1,2,3,4) vs (5,6,7)",Low,1215,64.73
+effort,2-class,"(1,2,3,4) vs (5,6,7)",High,662,35.27
+effort,2-class,"(1,2,3,4,5) vs (6,7)",Low,1582,84.28
+effort,2-class,"(1,2,3,4,5) vs (6,7)",High,295,15.72
+effort,2-class,"(1,2,3,4,5,6) vs (7)",Low,1793,95.52
+effort,2-class,"(1,2,3,4,5,6) vs (7)",High,84,4.48
+frustration,7-class,"1,2,3,4,5,6,7",1,505,26.9
+frustration,7-class,"1,2,3,4,5,6,7",2,569,30.31
+frustration,7-class,"1,2,3,4,5,6,7",3,359,19.13
+frustration,7-class,"1,2,3,4,5,6,7",4,221,11.77
+frustration,7-class,"1,2,3,4,5,6,7",5,149,7.94
+frustration,7-class,"1,2,3,4,5,6,7",6,48,2.56
+frustration,7-class,"1,2,3,4,5,6,7",7,26,1.39
+frustration,3-class,"(1)/(2)/(3,4,5,6,7)",Low,505,26.9
+frustration,3-class,"(1)/(2)/(3,4,5,6,7)",Medium,569,30.31
+frustration,3-class,"(1)/(2)/(3,4,5,6,7)",High,803,42.78
+frustration,3-class,"(1)/(2,3)/(4,5,6,7)",Low,505,26.9
+frustration,3-class,"(1)/(2,3)/(4,5,6,7)",Medium,928,49.44
+frustration,3-class,"(1)/(2,3)/(4,5,6,7)",High,444,23.65
+frustration,3-class,"(1)/(2,3,4)/(5,6,7)",Low,505,26.9
+frustration,3-class,"(1)/(2,3,4)/(5,6,7)",Medium,1149,61.21
+frustration,3-class,"(1)/(2,3,4)/(5,6,7)",High,223,11.88
+frustration,3-class,"(1)/(2,3,4,5)/(6,7)",Low,505,26.9
+frustration,3-class,"(1)/(2,3,4,5)/(6,7)",Medium,1298,69.15
+frustration,3-class,"(1)/(2,3,4,5)/(6,7)",High,74,3.94
+frustration,3-class,"(1)/(2,3,4,5,6)/(7)",Low,505,26.9
+frustration,3-class,"(1)/(2,3,4,5,6)/(7)",Medium,1346,71.71
+frustration,3-class,"(1)/(2,3,4,5,6)/(7)",High,26,1.39
+frustration,3-class,"(1,2)/(3)/(4,5,6,7)",Low,1074,57.22
+frustration,3-class,"(1,2)/(3)/(4,5,6,7)",Medium,359,19.13
+frustration,3-class,"(1,2)/(3)/(4,5,6,7)",High,444,23.65
+frustration,3-class,"(1,2)/(3,4)/(5,6,7)",Low,1074,57.22
+frustration,3-class,"(1,2)/(3,4)/(5,6,7)",Medium,580,30.9
+frustration,3-class,"(1,2)/(3,4)/(5,6,7)",High,223,11.88
+frustration,3-class,"(1,2)/(3,4,5)/(6,7)",Low,1074,57.22
+frustration,3-class,"(1,2)/(3,4,5)/(6,7)",Medium,729,38.84
+frustration,3-class,"(1,2)/(3,4,5)/(6,7)",High,74,3.94
+frustration,3-class,"(1,2)/(3,4,5,6)/(7)",Low,1074,57.22
+frustration,3-class,"(1,2)/(3,4,5,6)/(7)",Medium,777,41.4
+frustration,3-class,"(1,2)/(3,4,5,6)/(7)",High,26,1.39
+frustration,3-class,"(1,2,3)/(4)/(5,6,7)",Low,1433,76.35
+frustration,3-class,"(1,2,3)/(4)/(5,6,7)",Medium,221,11.77
+frustration,3-class,"(1,2,3)/(4)/(5,6,7)",High,223,11.88
+frustration,3-class,"(1,2,3)/(4,5)/(6,7)",Low,1433,76.35
+frustration,3-class,"(1,2,3)/(4,5)/(6,7)",Medium,370,19.71
+frustration,3-class,"(1,2,3)/(4,5)/(6,7)",High,74,3.94
+frustration,3-class,"(1,2,3)/(4,5,6)/(7)",Low,1433,76.35
+frustration,3-class,"(1,2,3)/(4,5,6)/(7)",Medium,418,22.27
+frustration,3-class,"(1,2,3)/(4,5,6)/(7)",High,26,1.39
+frustration,3-class,"(1,2,3,4)/(5)/(6,7)",Low,1654,88.12
+frustration,3-class,"(1,2,3,4)/(5)/(6,7)",Medium,149,7.94
+frustration,3-class,"(1,2,3,4)/(5)/(6,7)",High,74,3.94
+frustration,3-class,"(1,2,3,4)/(5,6)/(7)",Low,1654,88.12
+frustration,3-class,"(1,2,3,4)/(5,6)/(7)",Medium,197,10.5
+frustration,3-class,"(1,2,3,4)/(5,6)/(7)",High,26,1.39
+frustration,3-class,"(1,2,3,4,5)/(6)/(7)",Low,1803,96.06
+frustration,3-class,"(1,2,3,4,5)/(6)/(7)",Medium,48,2.56
+frustration,3-class,"(1,2,3,4,5)/(6)/(7)",High,26,1.39
+frustration,2-class,"(1) vs (2,3,4,5,6,7)",Low,505,26.9
+frustration,2-class,"(1) vs (2,3,4,5,6,7)",High,1372,73.1
+frustration,2-class,"(1,2) vs (3,4,5,6,7)",Low,1074,57.22
+frustration,2-class,"(1,2) vs (3,4,5,6,7)",High,803,42.78
+frustration,2-class,"(1,2,3) vs (4,5,6,7)",Low,1433,76.35
+frustration,2-class,"(1,2,3) vs (4,5,6,7)",High,444,23.65
+frustration,2-class,"(1,2,3,4) vs (5,6,7)",Low,1654,88.12
+frustration,2-class,"(1,2,3,4) vs (5,6,7)",High,223,11.88
+frustration,2-class,"(1,2,3,4,5) vs (6,7)",Low,1803,96.06
+frustration,2-class,"(1,2,3,4,5) vs (6,7)",High,74,3.94
+frustration,2-class,"(1,2,3,4,5,6) vs (7)",Low,1851,98.61
+frustration,2-class,"(1,2,3,4,5,6) vs (7)",High,26,1.39
