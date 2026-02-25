@@ -4,7 +4,7 @@
 # Date: 07/15/2025
 #---------------------------------------------------------------
 
-# Load packages
+# packages
 library(tidyverse)
 library(caret)
 library(nnet)

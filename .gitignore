@@ -7,3 +7,7 @@
 .quarto
 renv/
 results/
+reports/
+data/
+cronjobs/
+Archive/
